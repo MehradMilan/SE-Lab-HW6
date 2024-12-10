@@ -1,0 +1,18 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000"
+    volumes:
+      - ./data:/app/data
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+
+  nginx:
+    build: ./interface
+    ports:
+      - "8001:80"
+    depends_on:
+      - backend
