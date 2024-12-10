@@ -27,7 +27,7 @@ services:
       - backend
 
   postgres:
-    image: postgres:13
+    image: postgres:12.14
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
